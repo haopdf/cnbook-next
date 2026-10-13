@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tm-blue: #00843D;
+  --tm-red: #C8102E;
+  --tm-gold: #FFC72C;
+  --tm-dark: #1a1a2e;
+  --duo-green: #58CC02;
+  --duo-blue: #1CB0F6;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Duolingo-style button press effect */
+.duo-btn {
+  @apply relative transition-all duration-100 active:translate-y-[2px];
+}
+
+.duo-btn:active {
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.15) !important;
+}
+
+/* Progress bar animation */
+.progress-animate {
+  transition: width 0.5s ease-out;
+}
+
+/* Confetti effect for celebrations */
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100px) rotate(720deg); opacity: 0; }
+}
+
+.confetti {
+  animation: confetti-fall 1s ease-out forwards;
+}
+
+/* Audio button */
+.audio-btn-duo {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: #58CC02;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+
+.audio-btn-duo:hover {
+  background-color: #46A302;
+}
+
+.audio-btn-duo:active {
+  transform: scale(0.9);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+/* Mode-specific body styles */
+body.mode-cn2tm {
+  direction: ltr;
+}
+
+body.mode-cn2tm .cn-emphasis {
+  color: var(--tm-red);
+  font-weight: 600;
+}
